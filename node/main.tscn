@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://dautteaqjjvn7"]
+
+[ext_resource type="Script" path="res://node/main.gd" id="1_0n37h"]
+[ext_resource type="PackedScene" uid="uid://dfq2aq17yvdr" path="res://node/road.tscn" id="2_wontx"]
+[ext_resource type="PackedScene" uid="uid://bj7mlnkq1egc8" path="res://node/curve_road.tscn" id="3_ofs1r"]
+[ext_resource type="PackedScene" uid="uid://d15w61sqg6ve7" path="res://node/직진.tscn" id="4_bxqcj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk1bb"]
+size = Vector2(5, 80)
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("my_camera")]
+position = Vector2(0, 3)
+script = ExtResource("1_0n37h")
+my_camera = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(-2, -759)
+scale = Vector2(3, 3)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Map"]
+position = Vector2(-43, 0)
+collision_layer = 2
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/RigidBody2D"]
+shape = SubResource("RectangleShape2D_hk1bb")
+
+[node name="ColorRect" type="ColorRect" parent="Map/RigidBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -40.0
+offset_right = 2.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Map"]
+position = Vector2(44, 0)
+collision_layer = 2
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/RigidBody2D2"]
+shape = SubResource("RectangleShape2D_hk1bb")
+
+[node name="ColorRect" type="ColorRect" parent="Map/RigidBody2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -40.0
+offset_right = 2.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="road" parent="Map" instance=ExtResource("2_wontx")]
+position = Vector2(0, -79)
+
+[node name="curve_road" parent="Map" instance=ExtResource("3_ofs1r")]
+position = Vector2(3, -156)
+
+[node name="curve_road2" parent="Map" instance=ExtResource("3_ofs1r")]
+position = Vector2(130, -385)
+rotation = 0.803052
+
+[node name="Node2D" parent="Map" instance=ExtResource("4_bxqcj")]
+position = Vector2(387, -455)
+rotation = 1.62161
+
+[node name="curve_road3" parent="Map" instance=ExtResource("3_ofs1r")]
+position = Vector2(957, -512)
+rotation = -2.35227
+
+[node name="curve_road4" parent="Map" instance=ExtResource("3_ofs1r")]
+position = Vector2(1009, -553)
+rotation = 0.850521
+
+[node name="map2" type="Node2D" parent="."]
+
+[node name="Node2D" parent="map2" instance=ExtResource("4_bxqcj")]
+scale = Vector2(3, 3)
+
+[node name="Node2D2" parent="map2" instance=ExtResource("4_bxqcj")]
+position = Vector2(3780, -2585)
+rotation = 1.72148
+scale = Vector2(2.5, 2.5)
+
+[node name="Node2D3" parent="map2" instance=ExtResource("4_bxqcj")]
+position = Vector2(4741, -2437)
+rotation = 1.72148
+scale = Vector2(2, 2)
+
+[node name="curve_road" parent="map2" instance=ExtResource("3_ofs1r")]
+position = Vector2(5890, -2441)
+rotation = -2.26406
+scale = Vector2(2, 2)
+
+[node name="curve_road2" parent="map2" instance=ExtResource("3_ofs1r")]
+position = Vector2(6168, -2879)
+rotation = -3.0689
+scale = Vector2(2, 2)
+
+[node name="Node2D4" parent="map2" instance=ExtResource("4_bxqcj")]
+position = Vector2(6183, -3019)
+scale = Vector2(1.8, 1.8)
+
+[node name="Node2D5" parent="map2" instance=ExtResource("4_bxqcj")]
+position = Vector2(6179, -3724)
+scale = Vector2(1.5, 1.5)
+
+[node name="curve_road3" parent="map2" instance=ExtResource("3_ofs1r")]
+position = Vector2(6182, -4314)
+scale = Vector2(1.5, 1.5)
+
+[node name="curve_road4" parent="map2" instance=ExtResource("3_ofs1r")]
+position = Vector2(6363, -4637)
+rotation = 0.99621
+scale = Vector2(1.2, 1.2)
+
+[node name="Node2D6" parent="map2" instance=ExtResource("4_bxqcj")]
+position = Vector2(-120, 164)
+rotation = 1.62301

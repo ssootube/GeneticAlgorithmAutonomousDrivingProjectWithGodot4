@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj7mlnkq1egc8"]
+
+[ext_resource type="PackedScene" uid="uid://dfq2aq17yvdr" path="res://node/road.tscn" id="1_rygn3"]
+
+[node name="curve_road" type="Node2D"]
+
+[node name="road" parent="." instance=ExtResource("1_rygn3")]
+position = Vector2(-3, -1)
+
+[node name="road2" parent="." instance=ExtResource("1_rygn3")]
+position = Vector2(6, -68)
+rotation = 0.261799
+
+[node name="road3" parent="." instance=ExtResource("1_rygn3")]
+position = Vector2(31, -128)
+rotation = 0.523599
+
+[node name="road4" parent="." instance=ExtResource("1_rygn3")]
+position = Vector2(72, -179)
+rotation = 0.785398

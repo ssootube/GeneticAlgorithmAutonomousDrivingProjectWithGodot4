@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://jbahq3kugo8a"]
+
+[ext_resource type="Script" path="res://node/car.gd" id="1_2devo"]
+[ext_resource type="Script" path="res://node/CharacterBody2D.gd" id="1_liln2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bva4u"]
+size = Vector2(20, 35)
+
+[node name="Car" type="Node2D"]
+script = ExtResource("1_2devo")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("raycase2d_1", "raycase2d_2", "raycase2d_3", "raycase2d_4", "raycase2d_5")]
+collision_mask = 2
+script = ExtResource("1_liln2")
+raycase2d_1 = NodePath("RayCast2D")
+raycase2d_2 = NodePath("RayCast2D2")
+raycase2d_3 = NodePath("RayCast2D3")
+raycase2d_4 = NodePath("RayCast2D4")
+raycase2d_5 = NodePath("RayCast2D5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_bva4u")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -17.5
+offset_right = 10.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.423529, 0.109804, 1)
+
+[node name="왼쪽_사이드미러" type="ColorRect" parent="CharacterBody2D"]
+offset_left = -16.0
+offset_top = -14.0
+offset_right = -10.0
+offset_bottom = -11.0
+color = Color(0, 0, 0, 1)
+
+[node name="오른쪽_사이드미러" type="ColorRect" parent="CharacterBody2D"]
+offset_left = 10.0
+offset_top = -14.0
+offset_right = 16.0
+offset_bottom = -11.0
+color = Color(0, 0, 0, 1)
+
+[node name="앞유리" type="ColorRect" parent="CharacterBody2D"]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = -15.0
+color = Color(0.501961, 1, 1, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -15)
+rotation = 3.14159
+target_position = Vector2(0, 120)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -15)
+rotation = 2.35619
+target_position = Vector2(0, 120)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(-4.76837e-07, -15)
+rotation = 3.92699
+target_position = Vector2(0, 120)
+collision_mask = 2
+
+[node name="RayCast2D4" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -15)
+rotation = 1.5708
+target_position = Vector2(0, 120)
+collision_mask = 2
+
+[node name="RayCast2D5" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -15)
+rotation = -1.5708
+target_position = Vector2(0, 120)
+collision_mask = 2
+
+[node name="배기구" type="ColorRect" parent="CharacterBody2D"]
+offset_left = -8.0
+offset_top = 17.0
+offset_right = -6.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
