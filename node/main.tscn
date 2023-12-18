@@ -128,3 +128,60 @@ scale = Vector2(1.2, 1.2)
 [node name="Node2D6" parent="map2" instance=ExtResource("4_bxqcj")]
 position = Vector2(-120, 164)
 rotation = 1.62301
+
+[node name="map3" type="Node2D" parent="."]
+position = Vector2(10559, -11767)
+rotation = 2.69133
+
+[node name="Node2D2" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(3780, -2585)
+rotation = 1.72148
+scale = Vector2(2.5, 2.5)
+
+[node name="Node2D3" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(4741, -2437)
+rotation = 1.72148
+scale = Vector2(2, 2)
+
+[node name="curve_road" parent="map3" instance=ExtResource("3_ofs1r")]
+position = Vector2(5890, -2441)
+rotation = -2.26406
+scale = Vector2(2, 2)
+
+[node name="curve_road2" parent="map3" instance=ExtResource("3_ofs1r")]
+position = Vector2(6168, -2879)
+rotation = -3.0689
+scale = Vector2(2, 2)
+
+[node name="Node2D4" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(6183, -3019)
+scale = Vector2(1.8, 1.8)
+
+[node name="Node2D5" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(6179, -3724)
+scale = Vector2(1.5, 1.5)
+
+[node name="curve_road3" parent="map3" instance=ExtResource("3_ofs1r")]
+position = Vector2(6182, -4314)
+scale = Vector2(1.5, 1.5)
+
+[node name="curve_road4" parent="map3" instance=ExtResource("3_ofs1r")]
+position = Vector2(6363, -4637)
+rotation = 0.99621
+scale = Vector2(1.2, 1.2)
+
+[node name="Node2D" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(6201.48, -4587.32)
+rotation = -0.945125
+
+[node name="Node2D6" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(6549.5, -4048.12)
+rotation = -1.26072
+
+[node name="Node2D8" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(3670.25, -2498.75)
+rotation = -0.015025
+
+[node name="Node2D7" parent="map3" instance=ExtResource("4_bxqcj")]
+position = Vector2(6155.14, -3271.33)
+rotation = -0.0200412

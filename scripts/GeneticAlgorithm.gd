@@ -6,12 +6,21 @@ var mutation_rate = 0.05 #돌연변이 확률
 var scores = [] # 점수 (일단 선언부터.)
 var car_scene = preload("res://node/car.tscn")
 
+var st_time
+var generation
+
 func _init(parent_node, population_size, gene_size):#완성
+	st_time = Time.get_date_string_from_system() + " " + Time.get_time_string_from_system()
+	generation = 1
 	#초기 값을 받아 첫번째 세대를 랜덤한 유전자로 생성합니다.
+	var getLast = false
 	for i in range(population_size):
 		var gene = []
-		for j in range(gene_size):
-			gene.append(randf() * 2.0 - 1.0) # -1.0 ~ 1.0 의 실수를 랜덤하게 유전자로 설정합니다.
+		if !getLast:
+			for j in range(gene_size):
+				gene.append(randf() * 2.0 - 1.0) # -1.0 ~ 1.0 의 실수를 랜덤하게 유전자로 설정합니다.
+		else:
+			gene = DbManager.get_last_best_gene()
 		population.append(instantiate_car(parent_node,gene))
 
 func get_pos():
@@ -40,16 +49,19 @@ func get_two_max_indices(scores): #완성
 	
 func evolve(parent_node): #완성
 	calculate_scores() #먼저 점수를 계산합니다.
-	var max_indices = get_two_max_indices(scores)
-	var best_gene1 = population[max_indices[0]].get_gene()
-	var best_gene2 = population[max_indices[1]].get_gene()
+	for i in range(population.size()):
+		DbManager.insert_gene(st_time,generation,i,scores[i],population[i].get_gene(),population[i].get_child(0).didHit)
+	var best_gene = DbManager.get_max_two_score_gene(st_time,generation)
+#	var max_indices = get_two_max_indices(scores)
+#	var best_gene1 = population[max_indices[0]].get_gene()
+#	var best_gene2 = population[max_indices[1]].get_gene()
 	
-	print("best score : ", scores[max_indices[0]])
+	#print("best score : ", scores[max_indices[0]])
 	
 	var new_population = [] #다음 세대가 될 개체들을 담을 배열.
 	var new_population_count = len(population) #다음 세대의 자식들을, 현 세대의 개체수 만큼 생성합니다.
 	for i in range(new_population_count):
-		var child_gene = crossover(best_gene1,best_gene2)
+		var child_gene = crossover(best_gene[0],best_gene[1])
 		child_gene = mutate(child_gene)
 		new_population.append(instantiate_car(parent_node,child_gene))
 	
@@ -57,7 +69,7 @@ func evolve(parent_node): #완성
 	for element in population:
 		element.queue_free()
 	population = new_population
-	
+	generation += 1
 	
 	pass
 	

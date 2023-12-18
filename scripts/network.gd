@@ -4,7 +4,7 @@ var layers = []
 var biases = []
 
 func _init():#초기화 합니다.
-	var layer_sizes = [5,10,4,3,1]
+	var layer_sizes = [5,5*5,5*5,20,20,10,1]
 	for i in range(layer_sizes.size() - 1):
 		layers.append(Array())
 		biases.append(Array())

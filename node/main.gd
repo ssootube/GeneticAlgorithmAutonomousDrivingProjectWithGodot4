@@ -5,7 +5,7 @@ var max_car : Node2D = null
 @export var my_camera : Camera2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	geneticAlgorithm = GeneticAlgorithm.new(self,1000,Network.new().get_gene().size())
+	geneticAlgorithm = GeneticAlgorithm.new(self,50,Network.new().get_gene().size())
 	pass # Replace with function body.
 
 

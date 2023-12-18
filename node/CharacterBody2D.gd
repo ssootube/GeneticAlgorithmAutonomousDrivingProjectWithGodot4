@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var raycase2d_5 : RayCast2D
 @export var speed : float = 200
 var updateCicle = 0.1
-var kill_time = 2
+var kill_time = 1.2
 var timer = 0
 var repeat_kill_timer = 0
 var angle = 0
